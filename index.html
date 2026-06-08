@@ -1,77 +1,312 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRESHENDO MEN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body{
-            margin:0;
-            background:#121212;
-            color:white;
-            font-family:Arial, sans-serif;
-            text-align:center;
-        }
+<title>CRESHENDO MEN</title>
 
-        .hero{
-            padding:120px 20px;
-        }
+<style>
 
-        h1{
-            font-size:4rem;
-            margin-bottom:10px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .orange{
-            color:#FF6B00;
-        }
+body{
+    background:#121212;
+    color:#ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.6;
+}
 
-        .tagline{
-            font-size:1.4rem;
-            color:#d1d1d1;
-        }
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
 
-        .btn{
-            display:inline-block;
-            margin-top:30px;
-            padding:15px 30px;
-            background:#FF6B00;
-            color:white;
-            text-decoration:none;
-            border-radius:8px;
-            font-weight:bold;
-        }
-    </style>
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+
+h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.orange{
+    color:#FF6B00;
+}
+
+.tagline{
+    font-size:1.8rem;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#d4d4d4;
+    font-size:1.1rem;
+    max-width:700px;
+    margin:auto;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 35px;
+    background:#FF6B00;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+section{
+    padding:70px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1f1f1f;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.guides{
+    background:#181818;
+}
+
+.guide-list{
+    max-width:800px;
+    margin:auto;
+}
+
+.guide-list ul{
+    list-style:none;
+}
+
+.guide-list li{
+    padding:10px 0;
+    border-bottom:1px solid #333;
+}
+
+.future{
+    background:#101010;
+}
+
+.footer{
+    text-align:center;
+    padding:40px;
+    color:#999;
+}
+
+</style>
 </head>
 
 <body>
 
 <section class="hero">
 
-    <h1>
-        CRESHENDO
-        <span class="orange">MEN</span>
-    </h1>
+<h1>
+CRESHENDO <span class="orange">MEN</span>
+</h1>
 
-    <p class="tagline">
-        Construye Tu Mejor Versión
-    </p>
-    <p class="tagline">
-    A una guía de distancia.
+<p class="tagline">
+Construye Tu Mejor Versión
 </p>
 
-<p>
-    Guías prácticas para vestir mejor,<br>
-    cuidar tu imagen y proyectar la mejor versión de ti mismo.
+<p class="tagline">
+A una guía de distancia.
 </p>
-    
 
-    <a href="#" class="btn">
-        Comenzar
-    </a>
+<p class="subtitle">
+Guías prácticas para vestir mejor,
+cuidar tu imagen y proyectar la mejor versión de ti mismo.
+</p>
+
+<a href="#mejorar" class="btn">
+Comenzar
+</a>
 
 </section>
 
+<section id="mejorar">
+
+<div class="container">
+
+<h2 class="section-title">
+¿Qué quieres mejorar?
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>👔 Vestimenta</h3>
+<p>Aprende a vestir correctamente para cualquier ocasión.</p>
+</div>
+
+<div class="card">
+<h3>🧴 Cuidado Personal</h3>
+<p>Piel, cabello, barba, higiene e imagen masculina.</p>
+</div>
+
+<div class="card">
+<h3>⌚ Accesorios</h3>
+<p>Relojes, lentes, pulseras, cadenas y complementos.</p>
+</div>
+
+<div class="card">
+<h3>💼 Imagen Profesional</h3>
+<p>Proyecta seguridad y confianza en tu entorno laboral.</p>
+</div>
+
+<div class="card">
+<h3>🤔 No estoy seguro</h3>
+<p>Descubre qué área puede ayudarte más.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="guides">
+
+<div class="container">
+
+<h2 class="section-title">
+Guías Recomendadas
+</h2>
+
+<div class="guide-list">
+
+<ul>
+
+<li>✓ Cómo vestir para una entrevista de trabajo</li>
+
+<li>✓ Cómo vestir para la oficina</li>
+
+<li>✓ Cómo combinar colores correctamente</li>
+
+<li>✓ Guía básica de accesorios masculinos</li>
+
+<li>✓ Cuidado facial para hombres</li>
+
+<li>✓ Cómo elegir un perfume según tu estilo</li>
+
+<li>✓ Guía de relojes masculinos</li>
+
+<li>✓ Cómo vestir para la iglesia</li>
+
+<li>✓ Cómo vestir para eventos especiales</li>
+
+<li>✓ Cómo mejorar tu imagen personal</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+¿Para quién es CRESHENDO MEN?
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🎓 Jóvenes</h3>
+<p>Comienza a construir una imagen sólida desde temprano.</p>
+</div>
+
+<div class="card">
+<h3>💼 Profesionales</h3>
+<p>Mejora tu presencia y proyección laboral.</p>
+</div>
+
+<div class="card">
+<h3>👨 Adultos</h3>
+<p>Actualiza tu estilo y fortalece tu imagen personal.</p>
+</div>
+
+<div class="card">
+<h3>📈 Hombres que quieren mejorar</h3>
+<p>Sin importar tu edad o profesión.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="future">
+
+<div class="container">
+
+<h2 class="section-title">
+Próximamente
+</h2>
+
+<div class="guide-list">
+
+<ul>
+
+<li>✓ Guías por edad</li>
+
+<li>✓ Guías por profesión</li>
+
+<li>✓ Bundles especializados</li>
+
+<li>✓ Recomendaciones personalizadas</li>
+
+<li>✓ Asistente virtual CRESHENDO MEN</li>
+
+<li>✓ Integración con Shopify</li>
+
+<li>✓ Comunidad exclusiva</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="footer">
+
+CRESHENDO MEN © 2026
+
+</div>
+
 </body>
 </html>
+```
