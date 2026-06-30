@@ -747,6 +747,19 @@
     Chatbot.init({
         chatflowid: "99a77041-dde9-4399-8b7d-fc201947ceac",
         apiHost: "https://cloud.flowiseai.com",
+        theme: {
+            button: { backgroundColor: '#C9A84C', right: 20, bottom: 20, size: 48, iconColor: 'white', autoWindowOpen: { autoOpen: false } },
+            tooltip: { showTooltip: true, tooltipMessage: '¡Hola! ¿En qué te ayudo? 👋', tooltipBackgroundColor: '#C9A84C', tooltipTextColor: 'white' },
+            chatWindow: {
+                showTitle: true, title: 'CRESHENDO MEN',
+                welcomeMessage: '¡Hola! Soy tu asistente de estilo. ¿En qué te puedo ayudar hoy?',
+                backgroundColor: '#0D1B2A', height: 600, width: 380,
+                starterPrompts: ["¿Cómo me visto para la oficina?", "¿Qué guía me recomendás?", "Quiero mejorar mi imagen"],
+                botMessage: { backgroundColor: '#1A2F50', textColor: '#FAFAFA' },
+                userMessage: { backgroundColor: '#C9A84C', textColor: '#0D0D0D' },
+                textInput: { placeholder: 'Escribí tu pregunta...', backgroundColor: '#1A2F50', textColor: '#FAFAFA', sendButtonColor: '#C9A84C' }
+            }
+        }
     })
 </script>
 </body>
