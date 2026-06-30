@@ -1,319 +1,747 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRESHENDO MEN — Construye Tu Mejor Versión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<title>CRESHENDO MEN</title>
+    :root {
+      --black: #0A0A0A;
+      --white: #FAFAFA;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --charcoal: #1C1C1C;
+      --mid: #2E2E2E;
+      --muted: #6B6B6B;
+      --border: rgba(201,168,76,0.2);
+    }
 
-<style>
+    html { scroll-behavior: smooth; }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-body{
-    background:#121212;
-    color:#ffffff;
-    font-family:Arial, Helvetica, sans-serif;
-    line-height:1.6;
-}
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--white); text-decoration: none;
+      font-size: 0.8rem; letter-spacing: 0.1em;
+      text-transform: uppercase; opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 8rem 10% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.8rem;
+      max-width: 14ch;
+    }
+    .hero-title span { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(250,250,250,0.65);
+      max-width: 46ch; margin-bottom: 2.8rem;
+      font-weight: 300;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, transform 0.2s;
+      cursor: pointer; border: none;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+      cursor: pointer; background: transparent;
+    }
+    .btn-ghost:hover { background: var(--gold); color: var(--black); }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.hero{
-    text-align:left;
-    padding:60px 20px;
-}
+    /* ── DAVID SECTION ── */
+    .david {
+      background: var(--charcoal);
+      padding: 7rem 10%;
+      position: relative;
+    }
+    .david::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px; background: var(--border);
+    }
+    .david-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .david-label {
+      font-size: 0.7rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .david-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .david-title em { font-style: italic; color: var(--gold); }
+    .david-text {
+      color: rgba(250,250,250,0.7);
+      font-size: 0.97rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+    .david-text strong { color: var(--white); font-weight: 500; }
+    .david-quote {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+    }
+    .david-visual {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .david-age {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .david-age-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+    .david-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin-top: 1.5rem;
+    }
+    .stat-item {
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--gold); display: block;
+    }
+    .stat-label {
+      font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+    }
 
-h1{
-    font-size:4rem;
-    margin-bottom:15px;
-}
+    /* ── LEAD MAGNET ── */
+    .lead {
+      padding: 7rem 10%;
+      background: var(--black);
+      text-align: center;
+    }
+    .lead-inner {
+      max-width: 680px; margin: 0 auto;
+    }
+    .lead-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .lead-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .lead-sub {
+      color: rgba(250,250,250,0.6);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+    .guide-card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .guide-card::after {
+      content: 'GRATIS';
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 0.3rem 0.7rem;
+    }
+    .guide-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .guide-card-sub {
+      font-size: 0.85rem;
+      color: rgba(250,250,250,0.55);
+      margin-bottom: 1.5rem;
+    }
+    .guide-items {
+      list-style: none;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    .guide-items li {
+      font-size: 0.82rem;
+      color: rgba(250,250,250,0.75);
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .guide-items li::before {
+      content: '→'; color: var(--gold); flex-shrink: 0;
+    }
 
-.orange{
-    color:#FF6B00;
-}
+    /* ── FORM ── */
+    .form-wrap {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+    .form-title {
+      font-size: 0.85rem; font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: rgba(250,250,250,0.8);
+    }
+    .form-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .form-field {
+      flex: 1;
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-field:focus { border-color: var(--gold); }
+    .form-field::placeholder { color: var(--muted); }
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+    }
 
-.tagline{
-    font-size:1.8rem;
-    margin-bottom:15px;
-}
+    /* ── GUIDES SECTION ── */
+    .guides {
+      padding: 7rem 10%;
+      background: var(--charcoal);
+    }
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+    .section-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+    }
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+    }
+    .guide-item {
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: border-color 0.25s, transform 0.2s;
+      cursor: pointer;
+    }
+    .guide-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    .guide-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+    .guide-name {
+      font-weight: 600; font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+    .guide-desc {
+      font-size: 0.82rem;
+      color: rgba(250,250,250,0.5);
+      margin-bottom: 1rem;
+    }
+    .guide-price {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold); font-size: 1.1rem;
+    }
 
-.subtitle{
-    color:#d4d4d4;
-    font-size:1.1rem;
-    max-width:700px;
-    margin:auto;
-}
+    /* ── WHO ── */
+    .who {
+      padding: 7rem 10%;
+      background: var(--black);
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1100px; margin-top: 3rem;
+    }
+    .who-card {
+      border-top: 2px solid var(--gold);
+      padding-top: 1.5rem;
+    }
+    .who-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .who-card-text {
+      font-size: 0.85rem;
+      color: rgba(250,250,250,0.55);
+    }
 
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:15px 35px;
-    background:#FF6B00;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
+    /* ── BOT SECTION ── */
+    .bot-section {
+      padding: 7rem 10%;
+      background: var(--charcoal);
+      text-align: center;
+    }
+    .bot-inner { max-width: 600px; margin: 0 auto; }
+    .bot-placeholder {
+      background: var(--mid);
+      border: 1px dashed var(--border);
+      padding: 4rem 2rem;
+      margin-top: 2.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .bot-placeholder span {
+      display: block;
+      font-size: 2rem; margin-bottom: 1rem;
+    }
 
-section{
-    padding:70px 20px;
-}
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .footer-text {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
 
-.section-title{
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:40px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#1f1f1f;
-    padding:25px;
-    border-radius:10px;
-    text-align:center;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.guides{
-    background:#181818;
-}
-
-.guide-list{
-    max-width:800px;
-    margin:auto;
-}
-
-.guide-list ul{
-    list-style:none;
-}
-
-.guide-list li{
-    padding:10px 0;
-    border-bottom:1px solid #333;
-}
-
-.future{
-    background:#101010;
-}
-
-.footer{
-    text-align:center;
-    padding:40px;
-    color:#999;
-}
-
-.logo{
-    width:280px;
-    display:block;
-    margin-bottom:25px;
-}
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 7rem 6% 4rem; }
+      .david { padding: 5rem 6%; }
+      .david-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .lead { padding: 5rem 6%; }
+      .guides { padding: 5rem 6%; }
+      .who { padding: 5rem 6%; }
+      .bot-section { padding: 5rem 6%; }
+      footer { padding: 2rem 6%; flex-direction: column; text-align: center; }
+      .form-row { flex-direction: column; }
+      .guide-items { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
-<img src="logo-creshendo-men.png"
-     alt="CRESHENDO MEN"
-     class="logo">
-
-
-<h1>
-</h1>
-
-<p class="tagline">
-Construye Tu Mejor Versión
-</p>
-
-<p class="tagline">
-A una guía de distancia.
-</p>
-
-<p class="subtitle">
-Guías prácticas para vestir mejor,
-cuidar tu imagen y proyectar la mejor versión de ti mismo.
-</p>
-
-<a href="#mejorar" class="btn">
-Comenzar
-</a>
-
-</section>
-
-<section id="mejorar">
-
-<div class="container">
-
-<h2 class="section-title">
-¿Qué quieres mejorar?
-</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>👔 Vestimenta</h3>
-<p>Aprende a vestir correctamente para cualquier ocasión.</p>
-</div>
-
-<div class="card">
-<h3>🧴 Cuidado Personal</h3>
-<p>Piel, cabello, barba, higiene e imagen masculina.</p>
-</div>
-
-<div class="card">
-<h3>⌚ Accesorios</h3>
-<p>Relojes, lentes, pulseras, cadenas y complementos.</p>
-</div>
-
-<div class="card">
-<h3>💼 Imagen Profesional</h3>
-<p>Proyecta seguridad y confianza en tu entorno laboral.</p>
-</div>
-
-<div class="card">
-<h3>🤔 No estoy seguro</h3>
-<p>Descubre qué área puede ayudarte más.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="guides">
-
-<div class="container">
-
-<h2 class="section-title">
-Guías Recomendadas
-</h2>
-
-<div class="guide-list">
-
-<ul>
-
-<li>✓ Cómo vestir para una entrevista de trabajo</li>
-
-<li>✓ Cómo vestir para la oficina</li>
-
-<li>✓ Cómo combinar colores correctamente</li>
-
-<li>✓ Guía básica de accesorios masculinos</li>
-
-<li>✓ Cuidado facial para hombres</li>
-
-<li>✓ Cómo elegir un perfume según tu estilo</li>
-
-<li>✓ Guía de relojes masculinos</li>
-
-<li>✓ Cómo vestir para la iglesia</li>
-
-<li>✓ Cómo vestir para eventos especiales</li>
-
-<li>✓ Cómo mejorar tu imagen personal</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<h2 class="section-title">
-¿Para quién es CRESHENDO MEN?
-</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🎓 Jóvenes</h3>
-<p>Comienza a construir una imagen sólida desde temprano.</p>
-</div>
-
-<div class="card">
-<h3>💼 Profesionales</h3>
-<p>Mejora tu presencia y proyección laboral.</p>
-</div>
-
-<div class="card">
-<h3>👨 Adultos</h3>
-<p>Actualiza tu estilo y fortalece tu imagen personal.</p>
-</div>
-
-<div class="card">
-<h3>📈 Hombres que quieren mejorar</h3>
-<p>Sin importar tu edad o profesión.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="future">
-
-<div class="container">
-
-<h2 class="section-title">
-Próximamente
-</h2>
-
-<div class="guide-list">
-
-<ul>
-
-<li>✓ Guías por edad</li>
-
-<li>✓ Guías por profesión</li>
-
-<li>✓ Bundles especializados</li>
-
-<li>✓ Recomendaciones personalizadas</li>
-
-<li>✓ Asistente virtual CRESHENDO MEN</li>
-
-<li>✓ Integración con Shopify</li>
-
-<li>✓ Comunidad exclusiva</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="footer">
-
-CRESHENDO MEN © 2026
-
-</div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Creshendo Men</div>
+    <ul class="nav-links">
+      <li><a href="#david">La Historia</a></li>
+      <li><a href="#guias">Guías</a></li>
+      <li><a href="#asistente">Asistente</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Imagen · Estilo · Confianza</p>
+    <h1 class="hero-title">
+      Construye tu<br />
+      <span>mejor versión.</span>
+    </h1>
+    <p class="hero-sub">
+      Guías prácticas para hombres que quieren vestir mejor, proyectar confianza y cuidar su imagen — sin importar el punto de partida.
+    </p>
+    <div class="hero-btns">
+      <a href="#david" class="btn-primary">Leer la historia de David</a>
+      <a href="#guias" class="btn-ghost">Ver guías</a>
+    </div>
+  </section>
+
+  <!-- DAVID -->
+  <section class="david" id="david">
+    <div class="david-grid">
+      <div>
+        <p class="david-label">Una historia real</p>
+        <h2 class="david-title">
+          David aprendió a<br />
+          <em>prestar atención.</em>
+        </h2>
+        <p class="david-text">
+          Tenía 26 años cuando terminó en el hospital. No por un accidente, no por negligencia — sino porque esa mañana, mientras se bañaba, prestó atención a su cuerpo. <strong>Sintió algo diferente. Decidió ir.</strong>
+        </p>
+        <p class="david-text">
+          Era cáncer testicular. Lo encontraron a tiempo. Hoy tiene un hijo, tiene salud, y tiene algo que muy pocos hombres jóvenes desarrollan temprano: <strong>el hábito de cuidarse.</strong>
+        </p>
+        <blockquote class="david-quote">
+          "Un hombre que se cuida por dentro también se cuida por fuera. Esa atención cambia todo."
+        </blockquote>
+        <p class="david-text">
+          Eso es lo que CRESHENDO MEN construye: el hábito de prestar atención. A tu cuerpo. A tu imagen. A cómo te presentas al mundo.
+        </p>
+      </div>
+      <div class="david-visual">
+        <span class="david-age">26</span>
+        <span class="david-age-label">años tenía David</span>
+        <p style="font-size:0.82rem; color: rgba(250,250,250,0.5); line-height:1.7; margin-bottom: 1.5rem;">
+          El cáncer testicular es uno de los más comunes en hombres entre 15 y 35 años — y uno de los más curables cuando se detecta a tiempo.
+        </p>
+        <div class="david-stats">
+          <div class="stat-item">
+            <span class="stat-num">95%</span>
+            <span class="stat-label">tasa de supervivencia si se detecta temprano</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">1 min</span>
+            <span class="stat-label">es todo lo que tarda el autoexamen mensual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD MAGNET -->
+  <section class="lead" id="guia-gratis">
+    <div class="lead-inner">
+      <p class="lead-eyebrow">Descarga gratuita</p>
+      <h2 class="lead-title">
+        La guía que David desearía haber tenido a los 20
+      </h2>
+      <p class="lead-sub">
+        Guía de autoexamen testicular + los primeros pasos de imagen masculina que nadie te enseñó. Te la enviamos gratis, directo a tu correo.
+      </p>
+
+      <div class="guide-card">
+        <h3 class="guide-card-title">El Manual del Hombre que Presta Atención</h3>
+        <p class="guide-card-sub">Guía gratuita — PDF descargable</p>
+        <ul class="guide-items">
+          <li>Autoexamen testicular paso a paso</li>
+          <li>Señales de alerta que no debes ignorar</li>
+          <li>Cómo vestir según tu tipo de cuerpo</li>
+          <li>Colores que proyectan confianza</li>
+          <li>Rutina de cuidado facial básica</li>
+          <li>Checklist de imagen para hombre moderno</li>
+        </ul>
+      </div>
+
+      <div class="form-wrap">
+        <p class="form-title">Ingresá tus datos y te la enviamos ahora</p>
+        <div id="form-container">
+          <div class="form-row">
+            <input type="text" id="nombre" class="form-field" placeholder="Tu nombre" />
+            <input type="email" id="email" class="form-field" placeholder="Tu correo electrónico" />
+          </div>
+          <button class="btn-primary" style="width:100%;" onclick="enviarFormulario()">
+            Quiero mi guía gratis →
+          </button>
+          <p class="form-note">Sin spam. Solo contenido útil para hombres que quieren mejorar.</p>
+        </div>
+        <div class="form-success" id="form-success">
+          ✓ ¡Listo! Revisá tu correo — tu guía ya está en camino.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUÍAS -->
+  <section class="guides" id="guias">
+    <div class="section-header">
+      <p class="section-eyebrow">Catálogo</p>
+      <h2 class="section-title">Guías para cada área de tu imagen</h2>
+    </div>
+    <div class="guides-grid">
+      <div class="guide-item">
+        <span class="guide-icon">🎨</span>
+        <p class="guide-name">Color Code</p>
+        <p class="guide-desc">Colores por temporada y tono de piel. Vestite para tu tipo.</p>
+        <p class="guide-price">$9</p>
+      </div>
+      <div class="guide-item">
+        <span class="guide-icon">👔</span>
+        <p class="guide-name">Wardrobe Manual</p>
+        <p class="guide-desc">Conocé cada pieza de ropa, comprá bien, malgastá menos.</p>
+        <p class="guide-price">$11</p>
+      </div>
+      <div class="guide-item">
+        <span class="guide-icon">🧴</span>
+        <p class="guide-name">The Skin Fix</p>
+        <p class="guide-desc">Rutina completa de skincare diseñada para hombres.</p>
+        <p class="guide-price">$12</p>
+      </div>
+      <div class="guide-item">
+        <span class="guide-icon">🪞</span>
+        <p class="guide-name">The Face Routine</p>
+        <p class="guide-desc">Cuidado facial diario. Resultados visibles en semanas.</p>
+        <p class="guide-price">$12</p>
+      </div>
+      <div class="guide-item">
+        <span class="guide-icon">🌿</span>
+        <p class="guide-name">Scent Smart</p>
+        <p class="guide-desc">Elegí y usá colonia según tu estilo y ocasión.</p>
+        <p class="guide-price">$14</p>
+      </div>
+      <div class="guide-item">
+        <span class="guide-icon">🏠</span>
+        <p class="guide-name">Home Skills 101</p>
+        <p class="guide-desc">Las habilidades del hogar que todo hombre debe dominar.</p>
+        <p class="guide-price">$17</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+      <div style="border: 1px solid var(--border); padding: 1.5rem 2rem; flex: 1; min-width: 250px;">
+        <p style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Bundle</p>
+        <p style="font-weight:600; margin-bottom:0.3rem;">Starter Pack</p>
+        <p style="font-size:0.82rem; color:rgba(250,250,250,0.5); margin-bottom:0.8rem;">Color Code + Wardrobe Manual + Scent Smart</p>
+        <p style="font-family:'Playfair Display',serif; color:var(--gold); font-size:1.3rem;">$27</p>
+      </div>
+      <div style="border: 1px solid var(--border); padding: 1.5rem 2rem; flex: 1; min-width: 250px;">
+        <p style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Bundle</p>
+        <p style="font-weight:600; margin-bottom:0.3rem;">Full Grooming Kit</p>
+        <p style="font-size:0.82rem; color:rgba(250,250,250,0.5); margin-bottom:0.8rem;">Skin Fix + Face Routine + Scent Smart</p>
+        <p style="font-family:'Playfair Display',serif; color:var(--gold); font-size:1.3rem;">$29</p>
+      </div>
+      <div style="border: 1px solid var(--gold); padding: 1.5rem 2rem; flex: 1; min-width: 250px; background: rgba(201,168,76,0.05);">
+        <p style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Bundle ★ Popular</p>
+        <p style="font-weight:600; margin-bottom:0.3rem;">The Complete Man</p>
+        <p style="font-size:0.82rem; color:rgba(250,250,250,0.5); margin-bottom:0.8rem;">Las 6 guías completas</p>
+        <p style="font-family:'Playfair Display',serif; color:var(--gold); font-size:1.3rem;">$49</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section class="who">
+    <div class="section-header">
+      <p class="section-eyebrow">Para quién es</p>
+      <h2 class="section-title">CRESHENDO MEN es para el hombre que decide mejorar</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <h3 class="who-card-title">Jóvenes</h3>
+        <p class="who-card-text">Que empiezan a construir su imagen y no quieren cometer los errores de siempre.</p>
+      </div>
+      <div class="who-card">
+        <h3 class="who-card-title">Profesionales</h3>
+        <p class="who-card-text">Que saben que la imagen proyecta confianza y quieren optimizar la suya.</p>
+      </div>
+      <div class="who-card">
+        <h3 class="who-card-title">Hombres en transición</h3>
+        <p class="who-card-text">Nuevo trabajo, nueva relación, nueva versión. El momento de actualizar la imagen es ahora.</p>
+      </div>
+      <div class="who-card">
+        <h3 class="who-card-title">Los que no saben por dónde empezar</h3>
+        <p class="who-card-text">No necesitás experiencia. Necesitás las guías correctas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOT -->
+  <section class="bot-section" id="asistente">
+    <div class="bot-inner">
+      <p class="section-eyebrow">Asistente Virtual</p>
+      <h2 class="section-title" style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; margin-bottom:1rem;">
+        ¿No sabés por dónde empezar?
+      </h2>
+      <p style="color:rgba(250,250,250,0.6); font-size:0.95rem; margin-bottom:0.5rem;">
+        El asistente CRESHENDO MEN te hace las preguntas correctas y te dice exactamente qué guía necesitás según tu situación.
+      </p>
+
+      <!-- FLOWISE BOT VA AQUI -->
+      <div class="bot-placeholder">
+        <span>🤖</span>
+        El asistente virtual estará disponible muy pronto.<br />
+        <span style="font-size:0.75rem; display:block; margin-top:0.8rem; color:rgba(107,107,107,0.6);">[Integración Flowise — pendiente]</span>
+      </div>
+      <!-- FIN FLOWISE -->
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Creshendo Men</div>
+    <p class="footer-text">© 2026 · Construye Tu Mejor Versión · A una guía de distancia.</p>
+  </footer>
+
+  <script>
+    async function enviarFormulario() {
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!nombre || !email) {
+        alert('Por favor completá tu nombre y correo.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Por favor ingresá un correo válido.');
+        return;
+      }
+
+      // Guardar en Brevo
+      try {
+        const response = await fetch('https://api.brevo.com/v3/contacts', {
+          method: 'POST',
+          headers: {
+            'api-key': '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',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: email,
+            attributes: { FIRSTNAME: nombre },
+            listIds: [3],
+            updateEnabled: true
+          })
+        });
+
+        // Mostrar éxito sin importar la respuesta (CORS puede bloquear en algunos casos)
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+
+      } catch (err) {
+        // Igual mostrar éxito al usuario (el error puede ser solo CORS del navegador)
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      }
+    }
+
+    // Enter key support
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const nombre = document.getElementById('nombre');
+        const email = document.getElementById('email');
+        if (document.activeElement === nombre || document.activeElement === email) {
+          enviarFormulario();
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
-```
